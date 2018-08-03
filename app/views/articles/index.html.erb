@@ -1,0 +1,18 @@
+<h1>All Articles</h1>
+
+<ul id="articles">
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article), class: 'article_title',
+      id: "article_#{article.id}" %>
+      <!-- <a href="/articles/1">First Sample Article</a>
+ -->
+    </li>
+  <% end %>
+</ul>
+
+<% if logged_in? %>
+  <%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<% end %>
+
+<%= link_to "List All Tags", tags_path, class: "new_article" %>

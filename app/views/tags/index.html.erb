@@ -1,0 +1,17 @@
+  <h1>All Tags(<%= @tags.size %>)</h1>
+
+  <ul id="articles">
+    <p>
+      <% @tags.each do |tag| %>
+        <li>
+          <%= link_to tag.name, tag_path(tag) %>
+          <% if logged_in? %>
+            <%= link_to "Delete", tag_path(tag), data: {:confirm => "This will delete the tag #{tag.name}"}, method: :delete, class: "new_article"  %>
+          <% end %>
+        </li>
+      <% end %>
+    </p>
+  </ul>
+  <br>
+  <%= link_to "<< Back to Articles List", articles_path, class: "new_article"  %>
+</div>
